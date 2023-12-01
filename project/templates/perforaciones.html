@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Express Piercing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="color">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <style>
+            .navbar-custom {
+                 background-color: #eeeeaf;
+            }
+
+            .color{
+                background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+            }
+        </style>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border: 0">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/index">Inicio <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                    <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                    <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sucursales
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/galeria">Galerias</a>
+                <a class="dropdown-item" href="/altamira">Altamira</a>
+                <a class="dropdown-item" href="/multicentro">Multicentro</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Piercings
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/banana">Banana</a>
+                <a class="dropdown-item" href="/shopping">Shopping</a>
+                <a class="dropdown-item" href="/aros">Aros</a>
+                <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                <a class="dropdown-item" href="/labret">Labret</a>
+            </div>
+        </li>
+    </ul>
+    {% if session.user_id %}
+    <form action="/logout" method="post">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+    </form>
+{% else %}
+    <form action="/login">
+        <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+    </form>
+{% endif %}
+</div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+
+        <head>
+
+        <body>
+
+
+
+            <style>
+                .product {
+                    display: inline-block;
+                    margin: 10px;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    text-align: center;
+                }
+
+                .product img {
+                    width: 300px;
+                    height: 300px;
+                }
+
+                .product .price {
+                    font-weight: bold;
+                    color: #333;
+                }
+            </style>
+            <center><h1>perforaciones</h1></center>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/TMWvsBpHEtk/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AHUBoAC4AOKAgwIABABGHIgUyhBMA8=&rs=AOn4CLDAevGayOid9trkxbQ-vpJ6k7gfHQ"
+                    width="100" height="100">
+                <p class="price">Precio: $50</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/kLKqY4lUSEQ/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGHIgSyhAMA8=&rs=AOn4CLCZ1RlVXL2RavDVqChM2qQRlk0h8g"
+                    width="100" height="100">
+                <p class="price">Precio: $45</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/8xILqEelNno/mqdefault.jpg"
+                    width="100" height="100">
+                <p class="price">Precio: $50</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/RST_aW-nLDQ/mqdefault.jpg"
+                    width="100" height="100">
+                <p class="price">Precio: $49</p>
+            </div>
+            <div class="product">
+                <img src="data:image/jpeg;base64,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"
+                    width="100" height="100">
+                <p class="price">Precio: $42</p>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ55ZSUH1YL-nYdUC_De44pxYBEu1kc3_YoJjxS69gUlpXnJNMsS0iuriIvgBYJoaXyp3w&usqp=CAU"
+                    width="100" height="100">
+                <p class="price">Precio: $45</p>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYpFhu9O_G46lwdMe_IhOgxXvuE1Bc_rSKrEv5KgWayTmxRQ6KpXhxr7UyWKqsolMoAM8&usqp=CAU"
+                    width="100" height="100">
+                <p class="price">Precio: C$47</p>
+            </div>
+
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmnbHyDqa0jBvt1RJoxCjUh0ZxDNMnEpV_KcCOYjzG-bmhxhB5T3j1zPeDl2Q3Ov85UQs&usqp=CAU"
+                    width="100" height="100">
+                <p class="price">Precio: $45</p>
+            </div>
+            <div class="product">
+                <img src="https://live.staticflickr.com/3073/2592086597_65bb4a1684_b.jpg"
+                    width="100" height="100">
+                <p class="price">Precio: C$82</p>
+            </div>
+            <div class="product">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRydBmDTc5BVckUYWqo33xEcwRX648PmNQnM_vaSWCFpyyTgrPj1pH0WD66DH0p5r4Li1s&usqp=CAU"
+                    width="100" height="100">
+                <p class="price">Precio: $87</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/QUJk-AEvpH8/maxresdefault.jpg"
+                    width="100" height="100">
+                <p class="price">Precio: $78</p>
+            </div>
+            <div class="product">
+                <img src="https://i.ytimg.com/vi/G2WSimNY1q4/maxresdefault.jpg"
+                    width="100" height="100">
+                <p class="price">Precio: $47</p>
+            </div>
+            <style>
+                div {
+                  border: 1px solid gray;
+                  padding: 8px;
+                }
+
+                h1 {
+                  text-align: center;
+                  text-transform: uppercase;
+                  color: #4CAF50;
+                }
+
+                p {
+                  text-indent: 50px;
+                  text-align: justify;
+                  letter-spacing: 3px;
+                }
+
+                a {
+                  text-decoration: none;
+                  color: #008CBA;
+                }
+                </style>
+                </head>
+                <body>
+
+                <div>
+
+                  <h1> como atendemos a nuestros clientes</h1>
+                  <h4>Los representantes de servicio al cliente deben poseer experiencia y conocimientos suficientes para dar respuesta a las necesidades de los clientes. De otro modo, al acercarse a tu empresa lo más probable es que no logren aclarar sus dudas o encontrar una solución.
+                    Los equipos de atención al cliente deben ser expertos en el tema y conocer a cabalidad los protocolos de atención y seguimiento.</h4>
+                  <h4>*Conoce a tu cliente.
+                   <h4>*Personaliza tu comunicación.</h4>
+
+
+
+
+
+
+        </body>
+        </head>
+
+    </html>

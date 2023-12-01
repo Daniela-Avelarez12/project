@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Express Piercing</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+
+    <body class="color">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <style>
+                .navbar-custom {
+                     background-color: #eeeeaf;
+                }
+
+                .color{
+                    background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index">Inicio <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Servicios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                            <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                            <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/galeria">Galerias</a>
+                            <a class="dropdown-item" href="/altamira">Altamira</a>
+                            <a class="dropdown-item" href="/multicentro">Multicentro</a>
+                        </div>
+                </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Piercings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/banana">Banana</a>
+                            <a class="dropdown-item" href="/shopping">Espirales</a>
+                            <a class="dropdown-item" href="/aros">Aros</a>
+                            <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                            <a class="dropdown-item" href="/labret">Labret</a>
+                        </div>
+                    </li>
+                </ul>
+                {% if session.user_id %}
+                <form action="/logout" method="post">
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+                </form>
+                {% else %}
+                <form action="/login">
+                    <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+                </form>
+                {% endif %}
+            </div>
+        </nav>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+    <head>
+        <body>
+
+            <style>
+                .product {
+                    display: inline-block;
+                    margin: 10px;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    text-align: center;
+                }
+
+                .product img {
+                    width: 145px;
+                    height: 145px;
+                }
+
+                .product .price {
+                    font-weight: bold;
+                    color: #333;
+                }
+            </style>
+            <center><h1>Espirales</h1></center>
+            {% for producto in productos %}
+                 <div class="product">
+                    <img src="{{ producto.image }}" width="100" height="100">
+                    <p class="price">{{ producto.Nombre }}</p>
+                    <hr>
+                    <p class="price">{{ producto.Precio }}$</p>
+                    <form action="/get_product/{{ producto.id }}" method="POST">
+                        <button type="submit"> Ver detalles</button>
+                    </form>
+                </div>
+                {% endfor %}
+
+
+                <!--
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0VdyEGqnSz_1OD4vAus83LnIAIn1qRiMrhx0BLCLW3GtyDwJanSIM7rHlSTY7zU1V8_c&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $22</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCor1r3beJDD-XkIbvQOOvaE_icG_TMuF4de30citNiH9G1LAL44vYKwbJ40bIvjVZ59Q&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $12</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3bUZrl9UjyrbQ8zDdRYtzmd6SM_5T35ePT7jArkDpsFGykOqfKW_Y5XButqDR5hBu_DA&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $32</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1bMjmCGxZWcK3-0AJ4cjTzqoamWXQYiZlXKQUSJjA-lS5qoSKcPDW1kelSsH-iu3MUiM&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $39</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzPdrWYeL5K4wIg5WWmvGMJoYmnyN1hZMMbw&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $22</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolZBHnPoEGvmded4s1Pcpp0CDxzDUk-DQQQ&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $25</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCWk-zBoTpFrhsbwyP9zXl069ZRqwGu9yOzw&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $16</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJx2D_Xx-7mb--o1gIdsX-1IVjcHb1NrGyiA&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $17</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsD_1MKPBRpSLuPtyEoW5NiBLEHmJz-tW32g&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $14</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTytBYdehjfmgRqQm6vtCH8mnE4ZNoynlWFjg&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $11</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE70M1MBRCyFznZ8L6cV4kevIgMF3rgQ5mAQ&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $8</p>
+                </div>
+
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01pCLPcvZJW2aiE5owuC12F7CFvknW4jzxA&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $8</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILYNV_ioln2XyJgenHEq5farKDEGxEJrOSg&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $15</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqkmLcvYfLguY_98P7yke-NEinXvqKpLW0IA&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $12</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzGwOeEGFCrhI6q4UZ5_ip6bax1t_XpbJlTA&usqp=CAU" width="100" height="100">
+                    <p class="price">Precio: $12</p>
+                </div> -->
+
+
+
+        </body>
+    </head>
+</html>
+

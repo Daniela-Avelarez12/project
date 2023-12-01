@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Express Piercing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="color">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <style>
+            .navbar-custom {
+                 background-color: #eeeeaf;
+            }
+
+            .color{
+                background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+            }
+        </style>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/index">Inicio <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                    <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                    <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                </div>
+        </li>
+        <li class="nav-item dropdown">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sucursales
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/galeria">Galerias</a>
+                    <a class="dropdown-item" href="/altamira">Altamira</a>
+                    <a class="dropdown-item" href="/multicentro">Multicentro</a>
+                </div>
+            </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Piercings
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/banana">Banana</a>
+                <a class="dropdown-item" href="/shopping">Shopping</a>
+                <a class="dropdown-item" href="/aros">Aros</a>
+                <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                <a class="dropdown-item" href="/labret">Labret</a>
+            </div>
+        </li>
+    </ul>
+    {% if session.user_id %}
+    <form action="/logout" method="post">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+    </form>
+{% else %}
+    <form action="/login">
+        <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+    </form>
+{% endif %}
+</div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div class="card mb-3">
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursales</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 1rem;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .sucursal {
+            display: inline-block;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .sucursal img {
+            width: 1250px;
+            height: 450px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .sucursal p {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .sucursal:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+    </style>
+    <script>
+        function abrirModal(id) {
+            var modal = document.getElementById(id);
+            modal.style.display = "block";
+        }
+
+        function cerrarModal(id) {
+            var modal = document.getElementById(id);
+            modal.style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <h1>Sucursales</h1>
+    <div class="sucursal">
+        <img src="https://wepik.com/api/image/ai/9abf1c9e-7888-4a93-a3fe-b45174612d52?thumb=1" alt="Imagen Sucursal 1" onclick="abrirModal('modal1')">
+
+       <h1><p>Multicentro Las Américas</p></h1>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span onclick="cerrarModal('modal1')" style="float: right; cursor: pointer;">&times;</span>
+                <h1><p>Semaforos de Villa Progreso 1 cuadra al Oeste</p></h1>
+            </div>
+        </div>
+</body>
+</html>

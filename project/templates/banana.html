@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Express Piercing</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+
+    <body class="color">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <style>
+                .navbar-custom {
+                     background-color: #eeeeaf;
+                }
+
+                .color{
+                    background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index">Inicio <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios.html" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Servicios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                            <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                            <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/galeria">Galerias</a>
+                            <a class="dropdown-item" href="/altamira">Altamira</a>
+                            <a class="dropdown-item" href="/multicentro">Multicentro</a>
+                        </div>
+                    </li>
+                </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Piercings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/banana">Banana</a>
+                            <a class="dropdown-item" href="/shopping">Shopping</a>
+                            <a class="dropdown-item" href="/aros">Aros</a>
+                            <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                            <a class="dropdown-item" href="/labretl">Labret</a>
+
+                        </div>
+                    </li>
+                </ul>
+                {% if session.user_id %}
+                <form action="/logout" method="post">
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+                </form>
+                {% else %}
+                <form action="/login">
+                    <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+                </form>
+                {% endif %}
+            </div>
+        </nav>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    </body>
+    <!DOCTYPE html>
+    <html lang="en">
+        <html>
+
+            <head>
+
+            <body>
+
+
+
+                <style>
+                    .product {
+                        display: inline-block;
+                        margin: 10px;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        text-align: center;
+                    }
+
+                    .product img {
+                        width: 300px;
+                        height: 300px;
+                    }
+
+                    .product .price {
+                        font-weight: bold;
+                        color: #333;
+                    }
+                </style>
+
+                <center><h1>Banana</h1></center>
+
+                {% for producto in productos %}
+                <div class="product">
+                   <img src="{{ producto.image }}" width="100" height="100">
+                   <p class="price">{{ producto.Nombre }}</p>
+                   <hr>
+                   <p class="price">{{ producto.Precio }}$</p>
+                   <form action="/get_product/{{ producto.id }}" method="POST">
+                       <button type="submit"> Ver detalles</button>
+                   </form>
+               </div>
+               {% endfor %}
+               <!--
+
+
+            -->
+            <div class="product">
+                 <img src="https://piercing10.com/wp-content/uploads/bolas-barra-curva-titanio-pulido-i1-f7-450x450.jpg"
+                     width="100" height="100">
+                 <p class="price">Precio: $13</p>
+             </div>
+             <div class="product">
+                 <img src="data:image/png;base64,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"
+                     width="100" height="100">
+                 <p class="price">Precio: $15</p>
+             </div>
+             <div class="product">
+                 <img src="https://d22fxaf9t8d39k.cloudfront.net/035871892dff79017b357f538c3a05c5425a57acc8a061d7e94461712789f1968500.jpg"
+                     width="100" height="100">
+                 <p class="price">Precio: $19</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/BNC/BNC1663X3_L-Piercings-Bananas-Banana-acero-quir%C3%BArgico-plateado-acabado-brillante-con-conos.JPG?dt=1661952397"
+                     width="100" height="100">
+                 <p class="price">Precio: $9</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-BN0014/CJ-BN0014-1610AB_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-plateado-acabado-brillante-con-brillantes.JPG?dt=1626262855"
+                     width="100" height="100">
+                 <p class="price">Precio: $12</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTGs7aT0iS7ihGKIFIT-ZzWMM3XfPU_Nfdrw&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $19</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvVlTgY80BANLyxrHIuApK5WT-8R11czDFGg&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: C$19</p>
+             </div>
+
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/LI-FBN/LI-FBN16105_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-negro-acabado-brillante-con-dise%C3%B1o-de-Ala-y-brillante.JPG?dt=1626277052"
+                     width="100" height="100">
+                 <p class="price">Precio: $45</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.awakenpiercing.com/image/cache/catalog/PRODUCT%20PIC/piercing/PD/PD%20181-200/PD-189-01a-1000x1000.jpg"
+                     width="100" height="100">
+                 <p class="price">Precio: C$26</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRML-t2WRLjOZML8qu8svpyen7xEaDIJKWp5g&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $32</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR67SPF6R-UoevAw2MYCHiBPaFcTz92s6wARwxw0lNQKq1kXAlFJWETkJ83VNPL0yiHSKw&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $38</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsckP_KHGxYfnbN2sdeTaIV9SwgP9pfIfCgA-F8QpZ7npKq30yD7ag85Liq6p6NQ9WTgQ&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $14</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfb5iCHLjXv8qQi_lOaKhUT_jVSwA_tbPdlzTbDtEbaQP-OYthTO00_BVPfCLHyX40bvQ&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $25</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2LGUMF3F_AwczjS7t5v5UhmzVXVgeH_8tr9SJNNMWtDHfTFxqZUOoxUx_chVyAJ_KxQc&usqp=CAU"
+                     width="100" height="100">
+                 <p class="price">Precio: $19</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/BKTBN/BKTBN1684_L-Piercings-Bananas-Banana-titanio-negro-acabado-brillante-con-bolas.JPG?dt=1657343385"
+                     width="100" height="100">
+                 <p class="price">Precio: $4</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-XMAS-BN0004/CJ-XMAS-BN0004-1610_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-chapado-en-oro-acabado-brillante-con-dise%C3%B1o-de-mu%C3%A9rdago-y-brillantes.JPG?dt=1700802322"
+                     width="100" height="100">
+                 <p class="price">Precio: $12</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-XMAS-BN0010/CJ-XMAS-BN0010-1610_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-plateado-acabado-brillante-con-dise%C3%B1o-de-%C3%A1rbol-navide%C3%B1o-y-brillantes.JPG?dt=1669104261"
+                     width="100" height="100">
+                 <p class="price">Precio: $12</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/PWST520/PWST520-1610LSI_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-plateado-acabado-brillante-con-accesorio-cereza-y-brillantes.JPG?dt=1649832682"
+                     width="100" height="100">
+                 <p class="price">Precio: $9</p>
+             </div>
+
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-XMAS-BN0040/CJ-XMAS-BN0040-1610_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-anodizado-con-dise%C3%B1o-de-mu%C3%B1eco-de-nieve-y-brillantes.JPG?dt=1669104274"
+                     width="100" height="100">
+                 <p class="price">Precio: $12 c/u</p>
+             </div>
+             <div class="product">
+                 <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSmQRxrvaYUYBOIC8s8Wgl8F6hn3v4LeKpqkBOLht30ep-x7sav"
+                     width="100" height="100">
+                 <p class="price">Precio: $52</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-BKBN0024/CJ-BKBN0024-1610CR_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-negro-acabado-brillante-con-dise%C3%B1o-de-abeja-y-dise%C3%B1o-de-Flor.JPG"
+                     width="100" height="100">
+                 <p class="price">Precio: $18</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-BN0165/CJ-BN0165-1610_L-Piercings-Bananas-Banana-moderna.JPG?dt=1626262907"
+                     width="100" height="100">
+                 <p class="price">Precio: $5</p>
+             </div>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-XMAS-BN0046/CJ-XMAS-BN0046-1610_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-chapado-en-oro-acabado-brillante-con-dise%C3%B1o-navide%C3%B1o.JPG?dt=1669104276"
+                     width="100" height="100">
+                 <p class="price">Precio: $14</p>
+             </div>
+             <div class="product">
+                 <img src="https://www.crazy-factory.com/product_images/CJ-BN0195/CJ-BN0195-1610CR_L-Piercings-Bananas-Piercing-para-el-ombligo-acero-quir%C3%BArgico-plateado-acabado-brillante-con-dise%C3%B1o-mariposa-y-brillantes.JPG?dt=1686740699"
+                     width="100" height="100">
+                 <p class="price">Precio: $10</p>
+             </div>
+
+
+
+
+            </body>
+            </head>
+
+        </html>

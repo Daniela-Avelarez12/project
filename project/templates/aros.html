@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Express Piercing</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+
+    <body class="color">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <style>
+                .navbar-custom {
+                     background-color: #eeeeaf;
+                }
+
+                .color{
+                    background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index">Inicio <span class="sr-only"></span></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                    <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                    <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/galeria">Galerias</a>
+                            <a class="dropdown-item" href="/altamira">Altamira</a>
+                            <a class="dropdown-item" href="/multicentro">Multicentro</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Piercings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/banana">Banana</a>
+                            <a class="dropdown-item" href="/shopping">Shopping</a>
+                            <a class="dropdown-item" href="/aros">Aros</a>
+                            <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                            <a class="dropdown-item" href="/labret">Labret</a>
+
+                        </div>
+                    </li>
+                </ul>
+                {% if session.user_id %}
+                <form action="/logout" method="post">
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+                </form>
+                {% else %}
+                <form action="/login">
+                    <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+                </form>
+                {% endif %}
+            </div>
+        </nav>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    </body>
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+
+        <head>
+            <style>
+                .product {
+                    display: inline-block;
+                    margin: 10px;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    text-align: center;
+                }
+
+                .product img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .product .price {
+                    font-weight: bold;
+                    color: #333;
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <div class="container">
+                <h1>Aros</h1>
+                <div class="product">
+                    <img src="data:image/jpeg;base64,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"
+                        width="100" height="100">
+                    <p class="price">Precio: $35</p>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvS8ma21dZeDPA-u_h4mhepiveCNbbqfFIkQ&usqp=CAU"
+                        alt="Nombre del producto 2" width="100" height="100">
+                    <p class="price">Precio: $28</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiEPcZdSC--JCdJ2Q3VQiljrC4SgLOcs-2gA&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $32</p>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjf0UJxhxUYcTDuvIwoar1UwKDzkDWLHkNGg&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $8</p>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj6n-NMTkMzXAWp0ZB-Km5FvZePBhUaptl4w&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $13</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYwxNHULPNS5wzQw5xs9TV17rw-qf3Iid7Mg&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $9</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiewKB_xqmBZ-Zp1a3HE00kp46tz4G7gM8A3W9nm9ndki1n1qnMv0goVtvIP0X4r9uyAY&usqp=CAU"
+                        width="120" height="120">
+                    <p class="price">Precio: $35</p>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5sVje7mlIdUljuXbTuEoh59J85k3Liv0Cqw&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $16</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG1551EaoihFTbZDNa63bLFOce1HEMYk4SvQ&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $12</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQl1h2FvprCcc8b9bHEbz_8jWL9-elvJKUCA&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $35</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaJwJnP_w4_hYcOY5EjkiMNBlRM69llStZ8w&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $10</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokkZpWcto8Oadh-5LHRfvXxDDkhRWdz32cg&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $22</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSalcZO3MQj9txFxJQCI9pG1obuSVFFByoIYIMiWy13b1NldI0maTaMGwGslnkqz1k6EAY&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $16</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx6Vbo8fdlvR5zY8mat-1uDpvu6Io2QNPKSaUM7HISWSYHwUjwppi-P5OQ1Uey6zQEaeY&usqp=CAU"
+                        width="100" height="150">
+                    <p class="price">Precio: $14</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdkdsYW6Q8vXM-ggcfWNfaydowX8utsjHgGw&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $15</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanfdoz1Xf7KDjBaQrlWEudWxeUTrZ1eGJew&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $2</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiEPcZdSC--JCdJ2Q3VQiljrC4SgLOcs-2gA&usqp=CAUv"
+                        width="100" height="100">
+                    <p class="price">Precio: $5</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8bJ0QFp5k6YcRp6bAV1sYA7rqRk3Be3bBew&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $44</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrHcPOtvYEW5G95weQYVQkVGVzzMDEPnG2upItUxJ6O8vLTTqo75z4uTGgtz3silctsig&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $1.36</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxsRmuehocws8o9Q3cQE2zjXT-F2aOhdvmuW_OYztaHn6S14eT6S3fW6rxuF7zRmRv8e4&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $0.99</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXZBAECkL83PXKw_u63RjdD0BoDeOfL2KjgA&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $2</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWlEDviGnmUcDFAolSVUmR31hKISgx-RCEDfAgp-sglVFEGlQOS4yvAA19UDMZ_UPibU&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $XX.XX</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybk6s6k-cj0BEYg7roh2pdbRiEdwJOZJkrciXCi8c8AwGh2BLV1xPBt1gpFN9Dacuq6M&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $50</p>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJWlEDviGnmUcDFAolSVUmR31hKISgx-RCEDfAgp-sglVFEGlQOS4yvAA19UDMZ_UPibU&usqp=CAU"
+                        width="100" height="100">
+                    <p class="price">Precio: $19</p>
+                </div>
+
+        </body>
+
+    </html>

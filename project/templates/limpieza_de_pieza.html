@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Express Piercing</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/static/styles.css" rel="stylesheet">
+    </head>
+
+    <body class="color">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <style>
+                .navbar-custom {
+                     background-color: #eeeeaf;
+                }
+
+                .color{
+                    background-image:url(https://img.freepik.com/foto-gratis/diseno-espacio-papel-texturado-fondo_53876-34033.jpg);
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border: 0">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./index.html">Inicio <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/servicios.html" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Servicios
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/perforaciones">Perforaciones</a>
+                            <a class="dropdown-item" href="/limpieza_de_pieza">Limpieza de piezas</a>
+                            <a class="dropdown-item" href="/limpieza_de_perforaciones">Limpieza de perforaciones</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/sucursales" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/galeria">Galerias</a>
+                            <a class="dropdown-item" href="/altamira">Altamira</a>
+                            <a class="dropdown-item" href="/multicentro">Multicentro</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="./servicios.html" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Piercings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/banana">Banana</a>
+                            <a class="dropdown-item" href="/shopping">Shopping</a>
+                            <a class="dropdown-item" href="/arosl">Aros</a>
+                            <a class="dropdown-item" href="/piercing_falsos">piercing falsos</a>
+                            <a class="dropdown-item" href="/labret">Labret</a>
+
+                        </div>
+                    </li>
+                </ul>
+                {% if session.user_id %}
+                <form action="/logout" method="post">
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Cerrar Sesión</button>
+                </form>
+                {% else %}
+                <form action="/login">
+                    <a><button class="btn btn-outline-success my-2 my-sm-0" href="/login">Iniciar Sesión</button></a>
+                </form>
+                {% endif %}
+            </div>
+        </nav>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+        </body>
+        <!DOCTYPE html>
+        <html lang="en">
+            <html>
+
+                <head>
+
+                <body>
+
+
+
+                    <style>
+                        .product {
+                            display: inline-block;
+                            margin: 10px;
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            text-align: center;
+                        }
+
+                        .product img {
+                            width: 300px;
+                            height: 300px;
+                        }
+
+                        .product .price {
+                            font-weight: bold;
+                            color: #333;
+                        }
+                    </style>
+                    <center><h1>limpieza de piezas</h1></center>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/51r2XIyKRWL._AC_UF894,1000_QL80_.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $17</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.blacksteel.com.mx/uploads/productos/360x360/1890.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $15</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_862926-MLM43748599125_102020-O.webp"
+                            width="100" height="100">
+                        <p class="price">Precio: $29</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.piercingytattoobarcelona.com.es/uploads/imagenes/blog/w350/cristalmina-para-piercing-perforacion-1.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $9</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.crazy-factory.com/product_images/PR-FOP0019/PR-FOP0019-AQ_L-M%C3%A1s-Limpieza-y-cuidado-Crema-reparadora-e-hidratante-para-piercings.JPG?dt=1626285973"
+                            width="100" height="100">
+                        <p class="price">Precio: $12</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/51FKEuDahjL.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $19</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.crazy-factory.com/product_images/GSNEEDLES/GSNEEDLES16_L-Piercings-Instrumentos-accesorios-Aguja-est%C3%A9ril-para-la-nariz.JPG?dt=1626270849"
+                            width="100" height="100">
+                        <p class="price">Precio: C$19</p>
+                    </div>
+
+                    <div class="product">
+                        <img src="https://ae01.alicdn.com/kf/S99d770d8e41044a1815b22156c814af8J/Piercing-corporal-de-nariz-desinfectante-cuidado-posterior-soluci-n-para-el-cuidado-de-Piercing-de-oreja.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $45</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://m.media-amazon.com/images/I/71wdxSNWCRL.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: C$26</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://inksanepiercing.com/wp-content/uploads/2022/01/prontolind-PR-6-NL.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $32</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://blob.todoexpertos.com/uploads/md/4bd4c7e8fe45ae0deebbe01cf0bb0b10.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $38</p>
+                    </div>
+                    <div class="product">
+                        <img src="https://farmalista.es/wp-content/uploads/2017/07/stratamed-pelicula-protectora-heridas.jpg"
+                            width="100" height="100">
+                        <p class="price">Precio: $14</p>
+                    </div>
+                    <style>
+                        div {
+                          border: 1px solid gray;
+                          padding: 8px;
+                        }
+
+                        h1 {
+                          text-align: center;
+                          text-transform: uppercase;
+                          color: #4CAF50;
+                        }
+
+                        p {
+                          text-indent: 50px;
+                          text-align: justify;
+                          letter-spacing: 3px;
+                        }
+
+                        a {
+                          text-decoration: none;
+                          color: #008CBA;
+                        }
+                        </style>
+                        </head>
+                        <body>
+
+                        <div>
+
+                          <h1> como atendemos a nuestros clientes</h1>
+                          <h4>Los representantes de servicio al cliente deben poseer experiencia y conocimientos suficientes para dar respuesta a las necesidades de los clientes. De otro modo, al acercarse a tu empresa lo más probable es que no logren aclarar sus dudas o encontrar una solución.
+                            Los equipos de atención al cliente deben ser expertos en el tema y conocer a cabalidad los protocolos de atención y seguimiento.</h4>
+                          <h4>*Conoce a tu cliente.
+                           <h4>*Personaliza tu comunicación.</h4>
+
+
+
+
+
+
+                </body>
+                </head>
+
+            </html>
